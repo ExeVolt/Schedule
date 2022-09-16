@@ -1,0 +1,22 @@
+{
+    "Number_0": {
+        "Lesson_number": "1",
+        "Lesson": "1\u043f.2\u043f. -\u041d\u0415\u0422",
+        "Cabinet": ""
+    },
+    "Number_1": {
+        "Lesson_number": "3",
+        "Lesson": "\u042e\u0441\u043d.\u0444\u0438\u043d\u0433\u0440\u0430\u043c\u043e\u0442\u043d\u043e\u0441\u0442\u0438 1 \u0443\u0442\u0440\u043e\u0432\u0430",
+        "Cabinet": 402
+    },
+    "Number_2": {
+        "Lesson_number": "4",
+        "Lesson": "\u041c\u0414\u041a 03.02 \u0418\u0432\u0430\u0449\u0435\u043d\u043a\u043e",
+        "Cabinet": 204
+    },
+    "Number_3": {
+        "Lesson_number": "5,6",
+        "Lesson": "\u041c\u0414\u041a 03.01 \u0418\u0432\u0430\u0449\u0435\u043d\u043a\u043e",
+        "Cabinet": 204
+    }
+}
