@@ -55,7 +55,7 @@ def check_rows_by_size():
     global rows_count
     for i in range(0, rows_count):
         file_path = cropped_schedule_row_path % i
-        if os.stat(file_path).st_size < 10_000:
+        if os.stat(file_path).st_size < 15_000:
             os.remove(file_path)
             rows_count -= 1
 
@@ -139,11 +139,13 @@ def splitting_the_table():
 def write_schedule_to_json():
     rows_text = get_rows_text()
     data_to_write = dict()
+    data_to_write.update({"Information": {"Schedule_date": last_schedule_name[0:-4],
+                                          "Group_name": group_to_search}})
     counter = 0
     for row in rows_text:
-        number = row.split(' ')[0]
-        lesson = row[row.rindex(row.split(' ')[1]):row.index(row.split(' ')[-1]) \
-            if row.split(' ')[-1].isdigit() else None].strip()
+        number = int(row.split(' ')[0]) if row.split(' ')[0].isdigit() else ''
+        lesson = row[row.rindex(row.split(' ')[1]):row.index(
+                     row.split(' ')[-1]) if row.split(' ')[-1].isdigit() else None].strip()
         cabinet = int(row.split(' ')[-1]) if row.split(' ')[-1].isdigit() else ''
         data_to_write.update({'Number_%s' % counter: {'Lesson_number': number, 'Lesson': lesson, 'Cabinet': cabinet}})
         counter += 1
