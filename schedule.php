@@ -11,7 +11,13 @@
                 padding: 7px;
                 width: 1000px;
                 height: 80px;
+            }
+            body
+            {
                 font-size: 25px;
+            }
+            h1{
+                text-align: center;
             }
         </style>
     </head>
@@ -20,15 +26,19 @@
             <?php
                 $myfile = file_get_contents('C:\xampp\htdocs\data\schedule\schedule.json');
                 $json_arr = json_decode($myfile, true);
+                echo '
+                    <h1>'.$json_arr['Information']['Schedule_date'].'</h1>
+                    <br>
+                    <h1>'.$json_arr['Information']['Group_name'].'</h1>';
                 echo '<tr><td>Номер пары</td><td>Пара, Преподаватель</td><td>Кабинет</td></tr>';
-                foreach ($json_arr as $arr)
+                for ($i = 0; $i < count($json_arr) - 1; $i++)
                 {
                     echo '<tr>';
-                    echo '<td>'.$arr['Lesson_number'].'</td>';
-                    echo '<td>'.$arr['Lesson'].'</td>';
-                    echo '<td>'.$arr['Cabinet'].'</td>';
+                    echo '<td>'.$json_arr['Number_'.$i]['Lesson_number'].'</td>';
+                    echo '<td>'.$json_arr['Number_'.$i]['Lesson'].'</td>';
+                    echo '<td>'.$json_arr['Number_'.$i]['Cabinet'].'</td>';
                     echo '</tr>';
-                } 
+                }
             ?>
         </table>
     </body>
